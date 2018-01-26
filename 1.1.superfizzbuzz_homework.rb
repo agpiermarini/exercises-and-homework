@@ -61,3 +61,6 @@ return nil
 end
 
 puts superfizzbuzz3
+
+
+#build using hash

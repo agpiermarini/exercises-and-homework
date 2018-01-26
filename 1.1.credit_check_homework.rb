@@ -15,7 +15,7 @@ def authenticate(card_number)                                                   
 transformed_card_number.sum % 10 == 0 ?
     print("The card number #{card_number} is valid!") :                          # if sum of collection mod 10 is 0, card number is valid; else, card number is invalid
     print("The card number #{card_number} is invalid!")
-    
+
 end
 
 # TEST CASES

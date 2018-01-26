@@ -30,7 +30,7 @@ class Car
 
     def start
         if @running == false    # if car is off
-            #@running = true    # car turned on
+            @running = true    # car turned on
             return "Starting up!"
         else
             return "BZT! Nice try, though."
