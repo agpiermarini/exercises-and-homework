@@ -1,14 +1,10 @@
 require "pry"
 
 def authorize(card_number)
-    transformed_card_number = []
+    transformed_card_number = Array.new
     card_number.to_i.digits.each_with_index do | element, index |
         if index.odd? && (element * 2 >= 10)
-            total = 0
-            number_doubled = element * 2
-            number_doubled.digits.each { |element| total += element }
-            transformed_card_number << total
-            #binding.pry
+            transformed_card_number << (element * 2).digits.sum
         elsif index.odd?
             transformed_card_number << (element * 2)
         else
@@ -16,15 +12,9 @@ def authorize(card_number)
         end
     end
 
-    total = 0
-    transformed_card_number.each { |value| total += value }
-    if total % 10 == 0
-        print "The card number #{card_number} is valid!"
-    else
-        print "The card number #{card_number} is invalid!"
-    end
+transformed_card_number.sum % 10 == 0 ? print("The card number #{card_number} is valid!") :
+                                        print("The card number #{card_number} is invalid!")
 end
-
 
 # TEST CASES
 # First test case
@@ -41,7 +31,3 @@ puts authorize("5541801923795240")
 puts authorize("4024007106512380")
 puts authorize("6011797668868728")
 puts authorize("342801633855673")
-
-
-
-# # {value.collect! { |element| (element == "hello") ? "hi" : element }
